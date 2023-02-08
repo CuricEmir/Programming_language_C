@@ -1,0 +1,58 @@
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int main() {
+
+	std::locale::global(std::locale("German_germany"));
+
+	cout.setf(ios::fixed);
+	cout << setprecision(2);
+
+	cout << "+------------------------------------+\n";
+	cout << "| Kursgebühren VHS-Unterschlauerbach |\n";
+	cout << "|   Preis pro Stunde = 4.25 Euro     |\n";
+	cout << "|     Mitglieder-rabatt = 40%        |\n";
+	cout << "+------------------------------------+\n";
+	
+	//ausgabe std. zahl pro abend und zahl der kursabende
+	const double varRabatt = 0.4;
+	double varStundenproAbend;
+	int varKursabende;
+	char varMitgliedVHS;
+	double varGeskosten;
+	
+	int varAbfrage = 0;
+
+	cout << "Wie viele Stunden werden pro Abend berechnet: ";
+	cin >> varStundenproAbend;
+
+	cout << "Wie viele Kurs-Abende werden berechnet:       ";
+	cin >> varKursabende;
+	
+	
+	cout << "\n\nSind sie Mitglied der VHS?\n  (JA (1) /NEIN (2) )         " << endl;
+	cin >> varAbfrage;
+	if (varAbfrage == 1) {
+
+		cout << "\n      MITGLIED\n\n";
+		varGeskosten = (varKursabende + varStundenproAbend + 4.25) * (1- varRabatt); //Preiss 0,60 v0n 100
+		cout << " Die Gesamtkosten sind: " << varGeskosten << "E" << endl;
+	}
+	else if (varAbfrage == 2) {
+
+		cout << "\n\n       KEIN MITGLIED\n\n";
+		varGeskosten = varStundenproAbend + varKursabende * 4.25;
+		cout << " Die Gesamtkosten sind: " << varGeskosten << "E\n\n" << endl;
+
+	}
+	else {
+		cout << "   FEHLER  " << endl;
+		
+	}
+
+	system("Pause");
+	return 0;
+}
+	

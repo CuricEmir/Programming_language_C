@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+	int x = 0;
+	int t = 0;
+	int n = 0;
+	int Counter = 0;
+	int test = 0;
+	int gesamt = 0;
+
+	do {
+		cout << "Tiefe von Brunnen: ";
+		cin >> x;
+		cout << "Hochklettern in m: ";
+		cin >> t;
+		cout << "Wie viel fällt der Frosch in der nacht: ";
+		cin >> n;
+
+		test = t - n;
+	} while (test <= 0);
+
+	while (gesamt < x) {
+		gesamt = gesamt + t;
+		if (gesamt >= x) {
+		}
+		else {
+			gesamt = gesamt - n;
+		}
+		Counter++;
+	}
+	cout << "Der Frosch ist in " << Counter << " Tage raus";
+	
+	return 0;
+}

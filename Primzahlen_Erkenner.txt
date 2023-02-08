@@ -1,0 +1,49 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+	//-------------------
+	int Zahl;
+	bool Primzahl; //bool zeigt entweder wahr(1) oder falsch(0)
+	int neustart=0;
+	
+	while (neustart == 1) {
+		while (0 == 0) {
+			cout << " Geben sie bitte Ihre Zahl ein => ";
+			cin >> Zahl;
+
+			//-------------------
+
+			if (Zahl < 2) {
+				cout << "  FALSCHE EINGABE" << endl;
+			}
+			else {
+				break;
+			}
+		}
+
+		Primzahl = 1;
+
+		//-------------------
+		for (int Teiler = 2; Teiler < Zahl; Teiler++) {   //for schleife    //Solange teiler kleiner als die Zahl, dann soll teiler immer um die 1 erhöht werden
+			if ((Zahl % Teiler) == 0) {                       //Wenn die Eingegebene zahl / modulo (2)(Teiler) = 0 ist ==> KEINE PRIMZAHL.
+				cout << "\n\n    ==>  Primzahl  <==\n" << endl;
+				Primzahl = 0;
+				break;
+			}
+
+		}
+		if (Primzahl == 1) {
+			cout << "KEINE Primzahl!!!" << endl;
+		}
+
+		cout << "Wollen sie dieses Programm neustarten?\n  JA(1) oder NEIN(0)" << endl;
+		cin >> neustart;
+
+		while (neustart > 1 || neustart < 0) {
+			cout << "    ==>  FALSCHE EINGABE  <==    " << endl;
+			break;
+		}
+		return 0;
+	}

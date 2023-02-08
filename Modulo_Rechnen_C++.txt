@@ -1,0 +1,152 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+
+	std::locale::global(std::locale("German_germany"));
+
+	int varZahlen, varersteZahl, varzweiteZahl, vardritteZahl, rest;
+	int varFehler = 0;
+
+	cout << "         -- Wilkommen bei der DB --\n" << endl;
+	cout << "  -- Geben sie Ihr Fahrkartenstempel ein: ";
+	cin >> varZahlen;
+	cout << "  *-------------------------------------------*\n\n";
+	
+	if (varZahlen < 1000 || varZahlen > 9999)
+	{
+		cout << "       -- Fehler bei der Eingabe!!! --\n" << endl;
+		
+	}
+	else {
+
+		//---------------------------
+
+		//Linie
+		varersteZahl = varZahlen / 1000; //Bsp.: 1431 ------>  1431/1000 = 1
+		rest = varZahlen % 1000;         //Bsp.: 1431 ------>  1431%1000 = 431 (Rest von 1431/1000 !!!)
+
+		//Tag in Monat
+
+		varzweiteZahl = rest / 100;      //Bsp.: 431 ------> 431/100 = 4 
+		rest = rest % 100;               //Bsp.: 431 ------> 431%100 = 31
+
+		//Uhrzeit
+
+		vardritteZahl = rest;            //Bsp.: 31 ------> 31 = 31
+		rest = rest / 2;                 //Bsp.: 31 ------> 31/2 = 15,5 also 15:30Uhr
+		//---------------------------
+		cout << "---------------------------------\n";
+		cout << "Fahrtlinie:      " << varersteZahl << "\n" << endl;
+
+		cout << "Fahrt in Monat:  " << varzweiteZahl << "\n" << endl;
+
+
+		if (vardritteZahl % 2 != 0)
+		{
+			vardritteZahl = vardritteZahl / 2; //31 / 2 = 15,5 //Wenn kommazahl dann :30
+
+			while (vardritteZahl > 48 || vardritteZahl < 0) {
+				cout << "    ==>  FEHLER BEI DER EINGABE DER UHRZEIT  <==\n" << endl;
+				break;
+
+			}
+
+			cout << "Uhrzeit:         " << vardritteZahl << ":30 Uhr\n" << endl;
+		}
+		else
+		{
+			vardritteZahl = vardritteZahl / 2; //Wenn keine kommazahl dann :00
+
+			while (vardritteZahl > 47 || vardritteZahl < 0) {
+				cout << "    ==>  FEHLER BEI DER EINGABE DER UHRZEIT  <==\n" << endl;
+				break;
+
+			}
+			cout << "Uhrzeit: " << vardritteZahl << ":00 Uhr\n" << endl;
+
+
+		}
+		cout << "---------------------------------\n\n\n";
+
+		//--------------------------------------------------------------------------------
+		int neustarten = 0;
+
+		cout << " Möchten sie Programm neustarten?" << endl << "     JA(1) / NEIN(0)\n";
+		cin >> neustarten;
+		//--------------------------------------------------------------------------------
+		if (neustarten == 1) {
+
+			cout << "         -- Wilkommen bei der DB --\n" << endl;
+			cout << "  -- Geben sie Ihr Fahrkartenstempel ein: ";
+			cin >> varZahlen;
+			cout << "  *-------------------------------------------*\n\n";
+
+			if (varZahlen < 1000 || varZahlen > 9999)
+			{
+				cout << "       -- Fehler bei der Eingabe!!! --\n" << endl;
+
+			}
+			else {
+
+				//---------------------------
+
+				//Linie
+				varersteZahl = varZahlen / 1000; //Bsp.: 1431 ------>  1431/1000 = 1
+				rest = varZahlen % 1000;         //Bsp.: 1431 ------>  1431%1000 = 431 (Rest von 1431/1000 !!!)
+
+				//Tag in Monat
+
+				varzweiteZahl = rest / 100;      //Bsp.: 431 ------> 431/100 = 4 
+				rest = rest % 100;               //Bsp.: 431 ------> 431%100 = 31
+
+				//Uhrzeit
+
+				vardritteZahl = rest;            //Bsp.: 31 ------> 31 = 31
+				rest = rest / 2;                 //Bsp.: 31 ------> 31/2 = 15,5 also 15:30Uhr
+				//---------------------------
+				cout << "---------------------------------\n";
+				cout << "Fahrtlinie:      " << varersteZahl << "\n" << endl;
+
+				cout << "Fahrt in Monat:  " << varzweiteZahl << "\n" << endl;
+
+
+				if (vardritteZahl % 2 != 0)
+				{
+					vardritteZahl = vardritteZahl / 2; //31 / 2 = 15,5 //Wenn kommazahl dann :30
+
+					while (vardritteZahl > 24 || vardritteZahl < 0) {
+						cout << "    ==>  FEHLER BEI DER EINGABE DER UHRZEIT  <==\n" << endl;
+						break;
+
+					}
+
+					cout << "Uhrzeit:         " << vardritteZahl << ":30 Uhr\n" << endl;
+				}
+				else
+				{
+					vardritteZahl = vardritteZahl / 2; //Wenn keine kommazahl dann :00
+
+					while (vardritteZahl > 24 || vardritteZahl < 0) {
+						cout << "    ==>  FEHLER BEI DER EINGABE DER UHRZEIT  <==\n" << endl;
+						break;
+
+					}
+					cout << "Uhrzeit: " << vardritteZahl << ":00 Uhr\n" << endl;
+
+
+				}
+				cout << "---------------------------------\n\n\n";
+
+				//--------------------------------------------------------------------------------
+				int neustarten = 0;
+
+				cout << " Möchten sie Programm neustarten?" << endl << "     JA(1) / NEIN(0)\n";
+				cin >> neustarten;
+				
+			}
+		}
+return 0;
+}
